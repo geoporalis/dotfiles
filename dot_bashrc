@@ -13,7 +13,7 @@ fi
 export PATH
 export EDITOR=$(which helix)
 export VISUAL=$(which helix)
-export STARSHIP_CONFIG=~/example/non/default/path/starship.toml
+export STARSHIP_CONFIG=~/.config/starship/starship.toml
 
 eval "$(starship init bash)"
 
