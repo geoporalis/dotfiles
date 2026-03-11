@@ -6,7 +6,7 @@ $hostname \
 $directory\
 $git_branch\
 $git_status\
-$line_break$character"""
+$line_break$sudo$character"""
 
 # $os\
 # $username\
@@ -48,11 +48,15 @@ color_red = '#cc241d'
 color_yellow = '#d79921'
 
 [directory]
+home_symbol = "⌂"
 style = "fg:color_yellow"
 #fg0 bg:color_yellow"
-format = "[ $path >]($style)"
-truncation_length = 3
-truncation_symbol = "…/"
+format = "[($path) [($read_only)](fg:#ff0000) >]($style)"
+# read_only = ""
+read_only="🔒"
+# read_only_style = 'bg:color_red'
+# truncation_length = 10
+truncation_symbol = "••/"
 
 [directory.substitutions]
 "Documents" = "󰈙 "
@@ -72,22 +76,33 @@ format = '[[($all_status$ahead_behind )](fg:color_aqua)]($style)'
 
 [time]
 disabled = false
-time_format = "%R"
+time_format = "%T"
 style = "bg:color_bg1"
 format = '[[  $time >](fg:color_orange)]($style)'
 
+[sudo]
+format = "[$symbol ]($style)"
+style = "bold color_purple"
+symbol = "🗝"
+disabled = false
 
 [line_break]
 disabled = false
 
 [character]
 disabled = false
-success_symbol = '[](bold fg:color_green)'
-error_symbol = '[](bold fg:color_red)'
-vimcmd_symbol = '[](bold fg:color_green)'
-vimcmd_replace_one_symbol = '[](bold fg:color_purple)'
-vimcmd_replace_symbol = '[](bold fg:color_purple)'
-vimcmd_visual_symbol = '[](bold fg:color_yellow)'
+success_symbol = "[➜](fg:color_green)"
+error_symbol = "[➜](fg:color_red)"
+# success_symbol = '[](bold fg:color_green)'
+# error_symbol = '[](bold fg:color_red)'
+# vimcmd_symbol = '[](bold fg:color_green)'
+# vimcmd_replace_one_symbol = '[](bold fg:color_purple)'
+# vimcmd_replace_symbol = '[](bold fg:color_purple)'
+# vimcmd_visual_symbol = '[](bold fg:color_yellow)'
+
+[hostname]
+ssh_only = true
+style = "color_purple"
 
 # [nodejs]
 # symbol = ""

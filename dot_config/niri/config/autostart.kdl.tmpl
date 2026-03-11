@@ -1,0 +1,58 @@
+// Add lines like this to spawn processes at startup.
+// Note that running niri as a session supports xdg-desktop-autostart,
+// which may be more convenient to use.
+// See the binds section below for more spawn examples.
+// spawn-at-startup "alacritty" "-e" "fish"
+//* ───────────────────────────────────────────────────┤ 2. Execute at startup │
+
+///// policykit
+{{ if eq .chezmoi.hostname "RAPTOR" }}
+spawn-sh-at-startup "/usr/lib/polkit-kde-authentication-agent-1 &"        // used in CachyOS
+{{ else }}
+// spawn-sh-at-startup "/usr/lib/polkit-1/polkit-agent-helper-1 &"
+{{ end }}
+// spawn-at-startup "gnome-keyring"
+// spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
+// spawn-at-startup "/usr/libexec/lxqt-policykit-agent"
+// spawn-at-startup "/usr/lib/polkit-1/polkitd"
+
+// Bar and shell
+spawn-at-startup "qs" "-c" "noctalia-shell"
+// spawn-at-startup "~/.config/waybar/scripts/launch.sh"
+// spawn-at-startup "waybar"
+
+// Applets and daemons
+// spawn-at-startup "swww-daemon" // Wallpaper
+// spawn-at-startup "mako"
+
+// Notifications
+// spawn-at-startup "bluetoothctl" "power" "on" // Bluetooth
+// spawn-at-startup "blueman-applet" // Bluetooth
+// spawn-at-startup "nm-applet" "--indicator" // Network Manager applet
+// spawn-at-startup "swaync -c ~/.config/swaync/config.json -s ~/.config/swaync/style.css"
+
+// spawn-at-startup "swayosd-server"
+// spawn-at-startup "swaybg" "-m" "fill" "-i" "~/.config/walls/groove.jpg"
+
+//// XDG portals setup
+// spawn-at-startup "dbus-update-activation-environment" "--all"
+// spawn-at-startup "dbus-update-activation-environment" "--systemd" "WAYLAND_DISPLAY" "XDG_CURRENT_DESKTOP"
+// spawn-at-startup "/usr/libexec/xdg-desktop-portal-gtk"
+// spawn-at-startup "/usr/libexec/xdg-desktop-portal-gnome"
+// spawn-at-startup "/usr/libexec/xdg-desktop-portal"
+// spawn-at-startup "/usr/libexec/xdg-permission-store"
+
+
+// spawn-at-startup "swaync -c ~/.config/swaync/notmugil/config.json -s ~/.config/swaync/notmugil/style.css"
+// spawn-at-startup "sh" "-c" "swaybg -i ~/.config/walls/groove.jpg"
+// spawn-at-startup  swayidle timeout 300 "swaylock -f --clock --fade-in 1 --grace 30 --indicator-idle-visible &&\
+//                  systemctl suspend" \
+//                  lock "swaylock -f --clock --fade-in 1" \
+//                  before-sleep "swaylock -f --clock --fade-in 1"
+
+// Uncomment this line to ask the clients to omit their client-side decorations if possible.
+// If the client will specifically ask for CSD, the request will be honored.
+// Additionally, clients will be informed that they are tiled, removing some client-side rounded corners.
+// This option will also fix border/focus ring drawing behind some semitransparent windows.
+// After enabling or disabling this, you need to restart the apps for this to take effect.
+// prefer-no-csd

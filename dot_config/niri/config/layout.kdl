@@ -1,0 +1,107 @@
+
+// Settings that influence how windows are positioned and sized.
+// Find more information on the wiki:
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Layout
+
+layout {
+    gaps 2
+    center-focused-column "never"
+    // center-focused-column "on-overflow"
+    // center-focused-column "always"
+    empty-workspace-above-first
+    default-column-display "tabbed"
+    always-center-single-column
+
+    preset-column-widths {
+        proportion 0.3333333333333333
+        proportion 0.5
+        proportion 0.66667
+        proportion 1.0
+        // fixed 1000
+    }
+
+    default-column-width { proportion 0.5; }
+
+    preset-window-heights {
+        proportion 0.25
+        proportion 0.5
+        proportion 0.75
+        proportion 1.0
+    }
+
+    focus-ring {
+        // off
+        on
+        width 1
+        // catppuccin-mocha Surface2
+        // inactive-color "#585b70"
+        // inactive-color "green"
+        inactive-color "transparent"
+    }
+
+    border {
+        // off
+        width 1
+        active-color "#f9e2af"
+        inactive-color "transparent"
+    }
+
+    // default-column-display "tabbed"
+
+    tab-indicator {
+        width 5
+        gap -9
+        gaps-between-tabs 4
+
+        corner-radius 6
+
+        hide-when-single-tab
+
+        // place-within-column
+
+        // position "right"
+        // position "top"
+        // position "bottom"
+        position "left"
+        length total-proportion=0.95
+
+        active-color "#f9e2af"
+        inactive-color "#585b70"
+    }
+
+    shadow {
+        on
+
+        draw-behind-window true
+
+        spread 0
+        inactive-color "#222"
+
+        color "#f9e2af44"
+        // offset x=0 y=0
+    }
+    
+    insert-hint {
+        // off
+        color "#ffc87f80"
+        gradient from="#f38ba880" to="#f9e2af80" angle=45 relative-to="workspace-view"
+        // gradient from="#ff000080" to="#ffa50080" angle=45 relative-to="workspace-view" in="oklch longer hue"
+    }
+
+
+    // Struts shrink the area occupied by windows, similarly to layer-shell panels.
+	  // You can think of them as a kind of outer gaps. They are set in logical pixels.
+	  // Left and right struts will cause the next window to the side to always be visible.
+	  // Top and bottom struts will simply add outer gaps in addition to the area occupied by
+	  // layer-shell panels and regular gaps.
+    struts {
+        // left -10
+        // right 14
+        top 2
+        // bottom 16
+        // top 44
+        // bottom 64
+        // top 64
+    }
+
+}

@@ -1,0 +1,74 @@
+prefer-no-csd
+
+cursor {
+    xcursor-theme "Adwaita"
+    // xcursor-theme "catppuccin-macchiato-lavender-cursors"
+    // xcursor-theme "breeze_cursors"
+    // xcursor-theme "arstieonart"
+    xcursor-size 24
+    // qtcursor-size 48 // unknwon read reference
+    hide-when-typing
+    hide-after-inactive-ms 1000
+}
+
+environment {
+
+    // {{#if nvidia_driver}}
+    //     // Variables to make it work better with Nvidia proprietary GPU driver
+    //     GBM_BACKEND "nvidia-drm"
+    //     __GLX_VENDOR_LIBRARY_NAME "nvidia"
+    //     LIBVA_DRIVER_NAME "nvidia"
+    // {{/if}}
+
+  DISPLAY ":0"
+
+  XCURSOR_THEME "Adwaita"
+  XCURSOR_SIZE "24"
+  HYPRCURSOR_THEME "Adwaita"
+  HYPRCURSOR_SIZE "24"
+  QT_CURSOR_THEME "Adwaita"
+  QT_CURSOR_SIZE "24"
+
+
+
+  GDK_BACKEND "wayland,x11,*"
+
+  XDG_SESSION_DESKTOP "Niri"
+  XDG_SESSION_TYPE "wayland"
+  XDG_CURRENT_DESKTOP "Niri"
+
+  QT_QPA_PLATFORM "wayland;xcb"
+  QT_QPA_PLATFORMTHEME "gtk3"
+  QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
+  QT_STYLE_OVERRIDE "kvantum"
+  QT_WAYLAND_DECORATION "kvantum"
+
+  ELECTRON_OZONE_PLATFORM_HINT "wayland"
+}
+
+screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+// screenshot-path "~/Pictures/niri-scale/%M-%S.png"
+
+switch-events {
+  lid-close { spawn "systemctl" "hibernate";}
+}
+
+hotkey-overlay {
+    skip-at-startup
+}
+
+clipboard {
+    // disable-primary
+}
+
+gestures {
+    dnd-edge-view-scroll {
+        // trigger-width 0
+        // trigger-width 1
+        // trigger-width 10000
+        // max-speed 100000
+        // delay-ms 0
+        // delay-ms 100
+        // delay-ms 1000
+    }
+}

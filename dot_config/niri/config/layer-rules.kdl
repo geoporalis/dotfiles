@@ -1,0 +1,39 @@
+layer-rule {
+  match namespace="^noctalia-overview*"
+  place-within-backdrop true
+}
+
+/-layer-rule {
+    // match namespace="waybar"
+    // match namespace="launcher"
+    // match namespace="^notifications$"
+    opacity 0.5
+    // opacity 0.05
+    block-out-from "screencast"
+
+    // geometry-corner-radius 12
+    // geometry-corner-radius 999
+
+    shadow {
+        on
+        // draw-behind-window true
+    }
+}
+
+layer-rule {
+    match namespace="^Launcher$"
+    opacity 0.5
+
+    shadow {
+        off
+    }
+
+    // geometry-corner-radius 14
+    // geometry-corner-radius 8
+}
+
+layer-rule {
+    // mako
+    match namespace="^notifications$"
+    block-out-from "screencast"
+}

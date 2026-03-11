@@ -1,5 +1,8 @@
 # .bashrc
 
+eval "$(starship init bash)"
+eval "$(fzf --bash)"
+
 # Source global definitions
 if [ -f /etc/bashrc ]; then
     . /etc/bashrc
@@ -11,11 +14,16 @@ if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:$HOME/.luarocks/bin:" ]]; then
 fi
 
 export PATH
+export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
+
+{{ if eq .chezmoi.hostname "Raptor"}}
 export EDITOR=$(which helix)
 export VISUAL=$(which helix)
-export STARSHIP_CONFIG=~/.config/starship/starship.toml
+{{ else }}
+export EDITOR=$(which hx)
+export VISUAL=$(which hx)
+{{ end }}
 
-eval "$(starship init bash)"
 
 # Uncomment the following line if you don't like systemctl's auto-paging feature:
 # export SYSTEMD_PAGER=
